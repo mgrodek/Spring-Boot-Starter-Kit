@@ -1,3 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+    test {
+        groovy {
+            srcDir 'src/test/groovy'
+        }
+    }
+}
+
+jar {
+    baseName = 'bootstrap'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile('junit:junit')
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }

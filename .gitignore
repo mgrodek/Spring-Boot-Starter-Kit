@@ -1,4 +1,5 @@
 *.class
 .idea
-Bootstrap.iml
 .idea/.name
+Bootstrap.iml
+Bootstrap.ipr
